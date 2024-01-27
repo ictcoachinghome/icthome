@@ -59,6 +59,8 @@
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
    
+    {% sections 'header' %}
+
    <h2>
     Hello Bangladesh
    </h2>
@@ -78,7 +80,7 @@
     {%- endif -%}
 
 
-    {% sections 'header' %}
+    
 
     {% comment %} {% sections 'header-group' %} {% endcomment %}
 
