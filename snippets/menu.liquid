@@ -8,48 +8,46 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
 
-          {% for link in linklists[section.settings.main_linklist.links]  %}
+        {% for link in linklists[section.settings.main_linklist.links]  %}
          
-         {% if link.links == blank   %}
-          <li class="nav-item active">
-            <a class="nav-link" href="{{link.url}}">{{link.title}} <span class="sr-only">(current)</span></a>
-          </li>
-         {%endif%}
+            {% if link.links == blank   %}
+              <li class="nav-item active">
+                <a class="nav-link" href="{{link.url}}">{{link.title}} <span class="sr-only">(current)</span></a>
+              </li>
+            {%endif%}
 
-         {% if link.links != blank   %}
+            {% if link.links != blank   %}
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Shop
-            </a>
-            <div class="dropdown-menu full-width" aria-labelledby="navbarDropdown">
-              <div class="row">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Shop
+                </a>
+                <div class="dropdown-menu full-width" aria-labelledby="navbarDropdown">
+                  <div class="row">
 
-              {%  for childlink in link.links  %}  
-                <div class="col-4">
-      
+                  {%  for childlink in link.links  %}  
+                    <div class="col-4">
+                     <div class="dropdown-header">{{childlink.title}}</div>
+                      <div class="dropdown-divider"></div>
 
-                  <div class="dropdown-header">{{childlink.title}}</div>
-                  <div class="dropdown-divider"></div>
+                      {%  for sublink in childlink.links  %} 
 
-                  {%  for sublink in childlink.links  %} 
+                        <a href="{{sublink.url}}">{{sublink.title}}</a>
+                      {% endfor %}  
 
-                  <a href="{{sublink.url}}">{{sublink.title}}</a>
-                {% endfor %}  
+                    </div>
 
+                  {% endfor %} 
+
+
+
+                  </div>
                 </div>
-
-              {% endfor %} 
-
-
-
-              </div>
-            </div>
-          </li>
-        {%endif%}
+              </li>
+            {% endif %}
 
 
-        {% endif %}
+        {% endfor %}
 
         </ul>
       </div>
