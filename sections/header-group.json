@@ -20,5 +20,9 @@
     "padding_bottom": 20
    }
   }
- }
+ },
+ "order": [
+  "announcement-bar",
+  "header"
+ ]
 }
