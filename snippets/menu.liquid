@@ -67,8 +67,8 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
 
-      
-
+        {% for link in linklists[section.settings.main_linklist].links  %}
+     
 
           {% if link.links == blank   %}
           <li class="nav-item active">
@@ -132,7 +132,7 @@
           </li>
 
       
-
+        {% endfor %}
 
 
         </ul>
